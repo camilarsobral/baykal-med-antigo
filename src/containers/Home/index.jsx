@@ -1,14 +1,11 @@
-import ComoFunciona from '../../components/ComoFunciona'
-import Contato from '../../components/Contato'
-import PerguntasFrequentes from '../../components/PerguntasFrequentes'
 import Produtos from '../../components/Produtos'
 import QuemSomos from '../../components/QuemSomos'
-import { Background, Container, Header, Text } from './styles'
+import { Background, Container, Header, Text } from '../home/styles'
 
 function Home() {
     return (
         <>
-            <Background>
+            <Background id="home">
                 <Container>
                     <Header>
                         <h1>BaykalMed. Medicamentos até você.</h1>
@@ -28,10 +25,7 @@ function Home() {
                 </Container>
             </Background>
             <QuemSomos />
-            <ComoFunciona />
             <Produtos />
-            <PerguntasFrequentes />
-            <Contato />
         </>
     )
 }

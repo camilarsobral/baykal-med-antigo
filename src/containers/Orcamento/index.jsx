@@ -3,7 +3,7 @@ import { useState } from 'react'
 import api from '../../services/api'
 import { Container, Form } from './styles'
 
-function Contato() {
+function Orcamento() {
     const [campos, setCampos] = useState({
         nome: '',
         email: '',
@@ -29,50 +29,62 @@ function Contato() {
     async function send() {
         const formData = new FormData()
         Object.keys(campos).forEach((key) => formData.append(key, campos[key]))
-        await api
-            .post('/send', formData, {
-                headers: {
-                    'Content-Type': `multipart/form-data; boundary=${formData._boundary}`
-                }
-            })
-            .then((response) => alert(response.data))
+        await api.post('/send', formData, {
+            headers: {
+                'Content-Type': `multipart/form-data; boundary=${formData._boundary}`
+            }
+        })
     }
 
     return (
-        <Container className="container">
+        <Container className="container" id="contato">
             <h1>Solicite um orçamento</h1>
             <Form onSubmit={handleFormSubmit}>
-                <label htmlFor="nome">Nome: </label>
+                <label className="hide" htmlFor="nome">
+                    Nome:{' '}
+                </label>
                 <input
                     type="text"
                     id="nome"
                     name="nome"
                     placeholder="Nome"
                     onChange={handleInputChange}
+                    required
                 />
-                <label htmlFor="nome">E-mail: </label>
+                <label className="hide" htmlFor="nome">
+                    E-mail:
+                </label>
                 <input
-                    type="text"
+                    type="email"
                     id="email"
                     name="email"
                     placeholder="E-mail"
                     onChange={handleInputChange}
+                    required
                 />
-                <label htmlFor="nome">Telefone: </label>
+                <label className="hide" htmlFor="nome">
+                    Telefone:
+                </label>
                 <input
-                    type="text"
+                    type="tel"
                     id="telefone"
+                    pattern="[0-9]{2} [0-9]{1} [0-9]{4} [0-9]{4}"
+                    maxLength="11"
                     name="telefone"
                     placeholder="Telefone com DDD"
                     onChange={handleInputChange}
+                    required
                 />
                 <label htmlFor="nome">Receita médica: </label>
                 <input
                     className="file"
                     type="file"
+                    accept="image/png, image/jpeg, application/pdf"
                     id="anexo"
                     name="anexo"
                     onChange={handleInputChange}
+                    multiple
+                    required
                 />
 
                 <input className="submit" type="submit" value="Enviar" />
@@ -81,4 +93,4 @@ function Contato() {
     )
 }
 
-export default Contato
+export default Orcamento

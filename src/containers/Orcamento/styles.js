@@ -32,13 +32,32 @@ export const Form = styled.form`
     }
 
     input.file {
+        height: max-content;
+        max-width: 100%;
+        color: #444;
+        background: #fff;
+        border-radius: 50px;
         border: none;
+        margin-top: 10px;
+
+        &::file-selector-button {
+            height: 40px;
+            font-family: 'Montserrat', sans-serif;
+            margin-right: 20px;
+            border: 1px solid ${Colors.orange};
+            background: ${Colors.offwhite};
+            padding: 10px 20px;
+            border-radius: 20px;
+            color: ${Colors.text};
+            cursor: pointer;
+        }
     }
 
     input.submit {
         width: 130px;
         height: 40px;
         border: none;
+        margin-top: 20px;
         background-color: ${Colors.orange};
         color: ${Colors.offwhite};
         border-radius: 20px;
@@ -47,6 +66,10 @@ export const Form = styled.form`
 
         &:hover {
             opacity: 0.8;
+        }
+
+        &:active {
+            opacity: 0.6;
         }
     }
 `

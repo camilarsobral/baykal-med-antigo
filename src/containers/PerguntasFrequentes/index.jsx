@@ -8,7 +8,7 @@ import { Container, ContainerItems } from './styles'
 
 function PerguntasFrequentes() {
     return (
-        <Container>
+        <Container id="faq">
             <h1>Perguntas Frequentes</h1>
             <ContainerItems>
                 <Accordion>

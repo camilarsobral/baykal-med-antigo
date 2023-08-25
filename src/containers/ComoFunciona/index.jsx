@@ -2,7 +2,7 @@ import { Container, Text } from './styles'
 
 function ComoFunciona() {
     return (
-        <Container>
+        <Container id="comofunciona">
             <h1>Como importar medicamentos: Passo a Passo</h1>
             <Text>
                 <div>

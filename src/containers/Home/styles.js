@@ -9,6 +9,7 @@ export const Background = styled.div`
     background-size: cover;
     height: 90vh;
     width: 100%;
+    margin-top: 10vh;
 
     &::before {
         content: '';
@@ -35,7 +36,7 @@ export const Container = styled.div`
     display: flex;
     justify-content: center;
     align-items: flex-start;
-    height: 90vh;
+    height: 100vh;
     gap: 200px;
     padding-top: 100px;
 `
